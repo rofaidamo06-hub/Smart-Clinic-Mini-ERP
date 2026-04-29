@@ -1,0 +1,18 @@
+
+
+{% extends "base.html" %}
+{% block content %}
+<div class="card shadow-sm p-4 col-md-6 mx-auto">
+    <h3>Edit Patient Information</h3>
+    <form method="POST">
+        <label>Name:</label>
+        <input type="text" name="name" value="{{ patient.name }}" class="form-control mb-2" required>
+        <label>Age:</label>
+        <input type="number" name="age" value="{{ patient.age }}" class="form-control mb-2" required>
+        <label>Phone:</label>
+        <input type="text" name="phone" value="{{ patient.phone }}" class="form-control mb-2" required>
+        <button type="submit" class="btn btn-primary mt-2">Update</button>
+        <a href="{{ url_for('patients') }}" class="btn btn-secondary mt-2">Cancel</a>
+    </form>
+</div>
+{% endblock %}

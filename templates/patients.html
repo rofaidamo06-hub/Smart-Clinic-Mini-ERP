@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-md-4">
+        <div class="card shadow-sm p-3 mb-4">
+            <h5 class="text-success">Register New Patient</h5>
+            <hr>
+            <form method="POST">
+                <div class="mb-2">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" name="name" class="form-control" placeholder="e.g. Ahmed Mohamed" required>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Age</label>
+                    <input type="number" name="age" class="form-control" placeholder="25" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Phone Number</label>
+                    <input type="text" name="phone" class="form-control" placeholder="010xxxxxxx" required>
+                </div>
+                <button type="submit" class="btn btn-success w-100">Add to System</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <div class="card shadow-sm p-3">
+            <h5>Patients Records (Master Data)</h5>
+            <table class="table table-hover mt-3">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Phone</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in patients %}
+                    <tr>
+                        <td>{{ p.id }}</td>
+                        <td>{{ p.name }}</td>
+                        <td>{{ p.age }}</td>
+                        <td>{{ p.phone }}</td>
+                        <td>
+                            <a href="{{ url_for('edit_patient', id=p.id) }}" class="btn btn-sm btn-warning">Edit</a>
+                            <a href="{{ url_for('delete_patient', id=p.id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this patient?')">Delete</a>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="5" class="text-center text-muted">No patients registered yet.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

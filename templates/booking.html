@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-md-4">
+        <div class="card shadow-sm p-3">
+            <h5 class="text-primary">New Appointment</h5>
+            <form method="POST">
+                <div class="mb-2">
+                    <label>Select Patient:</label>
+                    <select name="patient_id" class="form-select" required>
+                        <option value="">-- Choose Patient --</option>
+                        {% for p in patients %}
+                        <option value="{{ p.id }}">{{ p.name }} (ID: {{ p.id }})</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <input type="date" name="date" class="form-control mb-2" required>
+                <input type="text" name="doctor" class="form-control mb-2" placeholder="Doctor Name" required>
+                <input type="number" name="amount" class="form-control mb-2" placeholder="Amount (EGP)" required>
+                <button type="submit" class="btn btn-primary w-100">Confirm & Bill</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <div class="card shadow-sm p-3">
+            <h5>Appointments & Revenue Log</h5>
+            <table class="table table-hover">
+                <thead class="table-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Patient</th>
+                        <th>Date</th>
+                        <th>Fee</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for b in bookings %}
+                    <tr>
+                        <td>{{ b.id }}</td>
+                        <td>{{ b.name }}</td>
+                        <td>{{ b.date }}</td>
+                        <td>{{ b.amount }} EGP</td>
+                        <td><span class="badge bg-warning text-dark">{{ b.status }}</span></td>
+                        <td>
+    {% if b.status == 'Unpaid' %}
+        <span class="badge bg-danger">Unpaid</span>
+        <a href="{{ url_for('pay_bill', id=b.id) }}" class="btn btn-sm btn-success ms-1">Pay Now</a>
+    {% else %}
+        <span class="badge bg-success">Paid</span>
+    {% endif %}
+</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
