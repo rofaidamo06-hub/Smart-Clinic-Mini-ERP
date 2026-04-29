@@ -1,17 +1,17 @@
-# Smart Clinic Mini ERP System
+# Smart Clinic Mini ERP (Flask-based)
 
 ## Project Overview
-This is a **Mini ERP System** designed for clinic management, developed using **C# and .NET**. The project emphasizes professional software engineering practices, moving from conceptual **Class Diagrams** to a functional implementation of medical administrative workflows.
+This is a **Web-based Mini ERP System** designed for clinic management, developed using **Python and the Flask framework**. The project demonstrates a transition from complex **UML Class Diagrams** to a functional web implementation, focusing on structured data handling and medical administrative automation.
 
-## Key Features
-*   **Modular System Architecture**: Designed with a focus on scalability and maintainability.
-*   **Structured Data Management**: Handling patient records, billing, and scheduling with high data integrity.
-*   **UML-Driven Development**: The entire system logic was mapped out using Class Diagrams before implementation to ensure a robust software structure.
-*   **Professional UI**: A clean interface designed for medical staff efficiency.
+## Key Technical Features
+*   **Web Framework Integration**: Built using Flask to handle routing, request processing, and dynamic content rendering.
+*   **System Architecture**: Designed with a modular approach to ensure scalability and ease of maintenance for healthcare environments.
+*   **UML-Driven Development**: All system entities and relationships were meticulously mapped using Class Diagrams prior to coding to ensure architectural integrity.
+*   **Structured Data Management**: Efficient handling of patient records, appointments, and billing data using Python's powerful data structures.
 
 ## Technical Stack
-*   **Language**: C#
-*   **Framework**: .NET / WinForms
+*   **Language**: Python 3.x
+*   **Framework**: Flask (Web-based ERP)
+*   **Frontend**: HTML/CSS (integrated within Flask templates)
 *   **Design Tools**: UML Class Diagrams
-
 
