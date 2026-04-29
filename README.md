@@ -14,5 +14,4 @@ This is a **Mini ERP System** designed for clinic management, developed using **
 *   **Framework**: .NET / WinForms
 *   **Design Tools**: UML Class Diagrams
 
-## Why This Project?
-The **Smart Clinic ERP** showcases my ability to design complex, multi-entity systems. Understanding how to structure large-scale data and manage relationships between different system components is a foundational skill I plan to apply to **Large Language Models (LLMs)** and **Data Engineering** at MBZUAI.
+
